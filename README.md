@@ -1,3 +1,7 @@
+[Português](#laboratório-de-cibersegurança-e-análise-de-malware-iso-lab-01) | [English](#cybersecurity--malware-analysis-laboratory-iso-lab-01)
+
+---
+
 # Laboratório de Cibersegurança e Análise de Malware (ISO-LAB-01)
 
 > **Objetivo:** Criar um ambiente isolado de alta performance para estudos de Pentest e Engenharia Reversa, utilizando virtualização de baixo nível.
@@ -58,3 +62,57 @@ O sistema operacional convidado (Guest) utiliza a interface GNOME 47.1 e ferrame
 
 ## 4. Segurança e Isolamento
 Seguindo as melhores práticas de cibersegurança, o ambiente mantém um protocolo rígido de **"No-Personal-Data"**, garantindo que malwares (como Infostealers) não tenham acesso a credenciais sensíveis do Host ou do usuário.
+
+# Cybersecurity & Malware Analysis Laboratory (ISO-LAB-01)
+
+> **Objective:** To create a high-performance, isolated environment for Pentesting and Reverse Engineering studies using low-level virtualization.
+
+---
+
+## 1. Host Specifications
+The hardware was specifically configured to support advanced virtualization workloads with focus on stability and performance.
+
+* **CPU:** AMD Ryzen 5 4600G [cite: 2025-10-21]
+* **RAM:** 32GB DDR4 [cite: 2025-10-21]
+* **Graphics:** * **AMD Radeon Vega 7** (Dedicated via IOMMU for the VM)
+    * **NVIDIA RTX 3070** (Primary GPU for Linux Mint Host) [cite: 2025-10-21]
+* **Host OS:** Linux Mint (Debian/Ubuntu-based for rock-solid stability) [cite: 2025-10-21]
+
+### Hardware Configuration (BIOS/UEFI)
+To enable **GPU Passthrough**, the following advanced features were enabled:
+* **IOMMU:** Activated for PCI device isolation.
+* **UMA Frame Buffer:** Allocated 2GB VRAM for the integrated GPU.
+
+![IOMMU Configuration](img/IOMMU.png)
+*Caption: Enabling IOMMU support on Gigabyte BIOS.*
+
+---
+
+## 2. Virtual Machine Architecture (Kali Linux)
+The guest system is managed via **KVM/QEMU** to ensure minimal overhead and near-native performance.
+
+* **Hypervisor:** Virt-Manager (KVM/QEMU)
+* **Allocated Resources:** 8GB RAM | 60GB Storage (QCOW2 format) [cite: 2025-10-21]
+* **Graphics Optimization:** Native GPU Passthrough (Vega 7) for hardware acceleration on GNOME 49.1.
+
+![Virt-Manager](img/Virt.png)
+*Caption: Running Kali Linux instance via Virt-Manager.*
+
+---
+
+## 3. Networking and Security (The Professional Edge)
+Advanced networking layers implemented for both mobility and defensive protocols.
+
+* **Mesh Network:** **Tailscale** implementation for secure, encrypted remote access (IP 100.x.x.x).
+* **Lab Connectivity:** **OpenVPN** tunnel configuration for practice platforms (TryHackMe / HackTheBox).
+* **Data Isolation:** Strict **"No-Personal-Data"** protocol within the VM. This ensures that analysis of suspicious binaries or malware (e.g., Infostealers) does not compromise host credentials or sensitive information [cite: 2025-10-21].
+
+![Desktop Kali Linux](img/Kali1.png)
+*Caption: System dashboard showing hardware-accelerated graphics and active Tailscale mesh network.*
+
+---
+
+## 4. Professional Roadmap
+This environment is currently being used as a primary training ground for:
+* **Huawei ICT Competition 2025-2026** (Network Track).
+* **ISC2 Certified in Cybersecurity (CC)** studies [cite: 2025-10-21].
